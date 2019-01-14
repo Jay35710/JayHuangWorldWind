@@ -280,10 +280,43 @@ requirejs(['./WorldWindShim',
         highlightAttributes.imageScale = 0.3;
         placemarkC.highlightAttributes = highlightAttributes;
 
-
-
         // add the layer to the list
         wwd.addLayer(placemarkCLayer);
+////////////////////////
+// Create a pop up box//
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+// Create a pop up box//
+//                    //
+//                    //
+//                    //
+//                    //
+////////////////////////
+
+
+
+
+////////////////////////
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+//                    //
+////////////////////////
+
+
 
 
         // Create a layer manager for controlling layer visibility.
