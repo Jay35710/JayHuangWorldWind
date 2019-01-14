@@ -69,7 +69,7 @@ define(function () {
             }
 
             if (this.wwd.globe !== this.roundGlobe) {
-                this.wwd.globe = this.roundGlobe;
+                //this.wwd.globe = this.roundGlobe;
             }
         } else {
             if (!this.flatGlobe) {
@@ -142,7 +142,7 @@ define(function () {
 
             if (layer.showSpinner && Spinner) {
                 var opts = {
-                    scale: 0.9,
+                    scale:0.9,
                 };
                 var spinner = new Spinner(opts).spin();
                 layerItem.append(spinner.el);
