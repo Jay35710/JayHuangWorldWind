@@ -87,7 +87,7 @@ requirejs(['./WorldWindShim',
         placemarkAttributes.imageOffset = new WorldWind.Offset(
             WorldWind.OFFSET_FRACTION, 0.3,
             WorldWind.OFFSET_FRACTION, 0.0);
-        placemarkAttributes.imageColor = WorldWind.Color.WHITE;
+        placemarkAttributes.imageColor = WorldWind.Color.GREEN//WHITE;
         placemarkAttributes.labelAttributes.offset = new WorldWind.Offset(
             WorldWind.OFFSET_FRACTION, 0.5,
             WorldWind.OFFSET_FRACTION, 1.0);
@@ -114,7 +114,7 @@ requirejs(['./WorldWindShim',
             // the default highlight attributes so that all properties are identical except the image scale. You could
             // instead vary the color, image, or other property to control the highlight representation.
             highlightAttributes = new WorldWind.PlacemarkAttributes(placemarkAttributes);
-            highlightAttributes.imageScale = 10;
+            highlightAttributes.imageScale = 1.2;
             placemark.highlightAttributes = highlightAttributes;
 
             // Add the placemark to the layer.
@@ -124,6 +124,20 @@ requirejs(['./WorldWindShim',
         // Add the placemarks layer to the WorldWindow's layer list.
         wwd.addLayer(placemarkLayer);
         // Now set up to handle picking.
+        ////////////////////////
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        ////////////////////////
 
         var highlightedItems = [];
 
@@ -150,8 +164,8 @@ requirejs(['./WorldWindShim',
             if (pickList.objects.length > 0) {
                 redrawRequired = true;
             }
-            console.log(redrawRequired+", IAN LIU YIHENG AH MA AH MA IS AN AH MA "+x);
-            console.log(" John Liu is a monkey "+x);
+            console.log(" IAN LIU YIHENG AH MA AH MA IS AN AH MA "+x);
+            //console.log(" John Liu is a monkey "+x);
             // Highlight the items picked by simply setting their highlight flag to true.
             if (pickList.objects.length > 0) {
                 for (var p = 0; p < pickList.objects.length; p++) {
@@ -252,16 +266,16 @@ requirejs(['./WorldWindShim',
         var placemarkCAttributes = new WorldWind.PlacemarkAttributes(null);
         placemarkCAttributes.imageScale = 0.1;
         placemarkCAttributes.imageOffset = new WorldWind.Offset(
-            WorldWind.OFFSET_FRACTION, 0.3,
+            WorldWind.OFFSET_FRACTION, 0.0,
             WorldWind.OFFSET_FRACTION, 0.0);
-
+        placemarkCAttributes.imageColor = WorldWind.Color.BLUE;
         placemarkCAttributes.labelAttributes.color = WorldWind.Color.WHITE;
         placemarkCAttributes.labelAttributes.offset = new WorldWind.Offset(
             WorldWind.OFFSET_FRACTION, 0.5,
             WorldWind.OFFSET_FRACTION, 1.0);
         placemarkCAttributes.imageSource = WorldWind.configuration.baseUrl + "/images/Screen Shot 2019-01-09 at 4.03.10 PM.png";
        //postion of placemark
-        var positionC = new WorldWind.Position(25.033, 121.564, 100.0);
+        var positionC = new WorldWind.Position(25.033, 121.564, 100.0, true, null);
         //create the placemark
         var placemarkC = new WorldWind.Placemark(positionC, false, placemarkCAttributes);
         //create the label
@@ -270,11 +284,14 @@ requirejs(['./WorldWindShim',
             "Lon " + placemarkC.position.longitude.toPrecision(5).toString();
         placemarkC.alwaysOnTop = true;
 
+        placemarkC.altitudeMode = WorldWind.RELATIVE_TO_GROUND;
+
+
         //add the placemark into the layer
         placemarkCLayer.addRenderable(placemarkC);
-        console.log(placemarkC);
+        //console.log(placemarkC);
 
-
+        placemarkC.altitudeMode = WorldWind.RELATIVE_TO_GROUND;
 
         highlightAttributes = new WorldWind.PlacemarkAttributes(placemarkCAttributes);
         highlightAttributes.imageScale = 0.3;
