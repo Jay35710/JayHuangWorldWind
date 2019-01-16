@@ -69,7 +69,7 @@ define(function () {
             }
 
             if (this.wwd.globe !== this.roundGlobe) {
-                //this.wwd.globe = this.roundGlobe;
+                this.wwd.globe = this.roundGlobe;
             }
         } else {
             if (!this.flatGlobe) {
