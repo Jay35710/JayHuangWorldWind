@@ -62,3 +62,24 @@ input:checked + .slider:before {
     margin-top: 30px;
     margin-bottom: 40px;
 }
+#CharFat{
+    background: grey;
+    color: black;
+    width: 350px;
+    height: 400px;
+    overflow:auto;
+    left: 45%;
+    top: 45%;
+    display: none;
+    position: absolute;
+}
+#CharFatClose{
+    color: black;
+}
+#charFatPop{
+    position: absolute;
+    left: 55%;
+    top:55%;
+    color: black;
+    z-index: auto;
+}

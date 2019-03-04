@@ -253,8 +253,8 @@ requirejs(['./WorldWindShim',
         var placemarkC = new WorldWind.Placemark(positionC, false, placemarkCAttributes);
         //create the label
         placemarkC.label = "∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞";
-            // "Lat " + placemarkC.position.latitude.toPrecision(4).toString() + "\n" +
-            // "Lon " + placemarkC.position.longitude.toPrecision(5).toString();
+        // "Lat " + placemarkC.position.latitude.toPrecision(4).toString() + "\n" +
+        // "Lon " + placemarkC.position.longitude.toPrecision(5).toString();
         placemarkC.alwaysOnTop = true;
 
         placemarkC.altitudeMode = WorldWind.RELATIVE_TO_GROUND;
@@ -298,22 +298,12 @@ requirejs(['./WorldWindShim',
         var box = document.createElement("div");
         box.innerHTML = "<button id ='CharFatClose' >close</button><br><h1>CharJustFat</h1><p> JustCharFat!!!</p><br><img alt = 'CharFat' src='https://upload.wikimedia.org/wikipedia/commons/2/20/Common_lipids_lmaps.png' width='300px'>" +
             "<br><h2 style = 'font-size:70%'>source:https://en.wikipedia.org/wiki/Lipid</h2><img alt = 'char' src = 'https://qph.fs.quoracdn.net/main-raw-457280285-ymcqgsdumwxocugzufohaiiqrwoypzxb.jpeg' width = '300px'><br><h2 style = 'font-size:70%'>source:https://www.quora.com/profile/Charlie-Cai-16</h2>";
-        box.style.background = "grey";
-        box.style.color = "black";
-        box.style.width ="350px";
-        box.style.height = "400px";
-        box.style.position = "absolute";
-        box.style.overflow = "auto";
-        box.style.left = "750px";
-        box.style.top = "500px";
-        box.style.display ="none";
-        box.style.zIndex ="10";
         box.id = "CharFat";
         document.body.appendChild(box);
 
 
         var CharFatClose = document.getElementById("CharFatClose");
-        CharFatClose.style.color = "black";
+        CharFatClose.id = "CharFatClose";
 
         //box.appendChild(CharFatClose);
         CharFatClose.onclick = function(){
@@ -391,9 +381,9 @@ requirejs(['./WorldWindShim',
         // 1. add another placemark in placemarkCLayer√√
         // 2. create another box with content√
         // 3. make a function respond to when mouse move to placemarkCC
-            //3.1 access picked object√
-            //3.2 filter out picked object except placemarkCC√
-            //3.3 open the pop over
+        //3.1 access picked object√
+        //3.2 filter out picked object except placemarkCC√
+        //3.3 open the pop over
         // 4. eventListener√
         //https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_popover_css&stacked=h
         //https://www.w3schools.com/bootstrap/bootstrap_popover.asp
@@ -419,8 +409,8 @@ requirejs(['./WorldWindShim',
         var placemarkCC = new WorldWind.Placemark(positionCC, false, placemarkCCAttributes);
 
         placemarkCC.label = "◊◊◊◊◊◊◊◊◊" ;
-            // "Lat " + placemarkCC.position.latitude.toPrecision(4).toString() + "\n" +
-            // "Lon " + placemarkCC.position.longitude.toPrecision(5).toString();
+        // "Lat " + placemarkCC.position.latitude.toPrecision(4).toString() + "\n" +
+        // "Lon " + placemarkCC.position.longitude.toPrecision(5).toString();
         placemarkCC.alwaysOnTop = true;
 
         placemarkCC.altitudeMode = WorldWind.RELATIVE_TO_GROUND;
@@ -439,6 +429,7 @@ requirejs(['./WorldWindShim',
         console.log(charFatPop);
         //var charFatPopPop = document.querySelector("#charFatPopPop");
         document.body.appendChild(charFatPop);
+        charFatPop.id = "charFatPop";
         charFatPop.style.position = "absolute";
         charFatPop.style.left = "55%";
         charFatPop.style.top = "55%";
@@ -499,8 +490,8 @@ requirejs(['./WorldWindShim',
 
 
 
-            wwd.addEventListener("mousemove", popOverNew);
-            // [data-toggle="popover"]
+        wwd.addEventListener("mousemove", popOverNew);
+        // [data-toggle="popover"]
 
 
 
@@ -523,6 +514,7 @@ requirejs(['./WorldWindShim',
         //bootstrap toggle switch: https://mdbootstrap.com/docs/jquery/forms/switch/
         //accordion example: https://usgs.aworldbridgelabs.com/mapsvcviewer
         //w3school: https://www.w3schools.com/bootstrap/bootstrap_collapse.asp
+        //multi level accordion: https://codepen.io/marklsanders/pen/OPZXXv?editors=1000
 
 
 
@@ -547,20 +539,20 @@ requirejs(['./WorldWindShim',
 
 
 
-////////////////////////
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-////////////////////////
+        ////////////////////////
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        //                    //
+        ////////////////////////
         ////////////////////////
         //                    //
         //Create              //
@@ -647,8 +639,8 @@ requirejs(['./WorldWindShim',
         //                    //
         ////////////////////////
         // Create a layer manager for controlling layer visibility.
-                    var layerManager = new LayerManager(wwd);
-                });
+        var layerManager = new LayerManager(wwd);
+    });
 ////////////////////////
 //                    //
 //                    //
