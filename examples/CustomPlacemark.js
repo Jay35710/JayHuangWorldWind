@@ -51,8 +51,8 @@ requirejs(['./WorldWindShim',
         // Create the custom image for the placemark with a 2D canvas.
         var canvas = document.createElement("canvas"),
             ctx2d = canvas.getContext("2d"),
-            size = 64, c = size / 2 - 0.5, innerRadius = 5, outerRadius = 20;
-
+            size = 640, c = size / 2 - 0.5, innerRadius = 50, outerRadius = 200;
+            //onsole.log(c);
         canvas.width = size;
         canvas.height = size;
 
