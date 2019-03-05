@@ -515,6 +515,7 @@ requirejs(['./WorldWindShim',
         //accordion example: https://usgs.aworldbridgelabs.com/mapsvcviewer
         //w3school: https://www.w3schools.com/bootstrap/bootstrap_collapse.asp
         //multi level accordion: https://codepen.io/marklsanders/pen/OPZXXv?editors=1000
+        //try it editor: https://www.w3schools.com/code/tryit.asp?filename=G1SLBN9U9IQF
 
 
 
@@ -533,6 +534,22 @@ requirejs(['./WorldWindShim',
             }
         };
         addEventListener("click", LayerToggle);
+
+        var slider2 = document.getElementById("slider2");
+        var LayerToggle2= function(){
+            if(placemarkCLayer.enabled === true){
+                slider2.onclick=function () {
+                    placemarkCLayer.enabled = false
+
+                }
+            }
+            if (placemarkCLayer.enabled === false){
+                slider2.onclick=function(){
+                    placemarkCLayer.enabled = true
+                }
+            }
+        };
+        addEventListener("click", LayerToggle2);
 
 
 
