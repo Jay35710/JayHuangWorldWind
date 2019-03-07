@@ -331,7 +331,6 @@ requirejs(['./WorldWindShim',
                         box.style.display = "block";
                         console.log(placemarkCLayer);
                         //placemarkC2Layer.enabled =false;
-
                     }
                 }
             }
@@ -494,11 +493,6 @@ requirejs(['./WorldWindShim',
         };
         addEventListener("click", LayerToggle2);
 
-
-
-
-
-
         ////////////////////////
         //                    //challenge 5
         //                    //
@@ -515,13 +509,11 @@ requirejs(['./WorldWindShim',
         ////////////////////////
             //  http://cs.aworldbridgelabs.com:8080/geoserver/web/
             //  http://aworldbridgelabs.com:8080/geoserver/FatWMS/wms?service=WMS&version=1.1.0&request=GetMap&layers=FatWMS:pointlands&styles=&bbox=-105.370531,39.914352,-105.065309,40.217396&width=768&height=762&srs=EPSG:4269&format=application/openlayers
-
             // Web Map Service information from NASA's Near Earth Observations WMS
-        var serviceAddress = "./data/FatWMS.js";
-        // var serviceAddress = "https://neo.sci.gsfc.nasa.gov/wms/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0";
+        //var serviceAddress = "./data/FatWMS.js";
+        var serviceAddress = "https://neo.sci.gsfc.nasa.gov/wms/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0";
             // Named layer displaying Average Temperature data
             var layerName = "MOD_LSTD_CLIM_M";
-
             // Called asynchronously to parse and create the WMS layer
             var createLayer = function (xmlDom) {
                 // Create a WmsCapabilities object from the XML DOM
@@ -539,7 +531,6 @@ requirejs(['./WorldWindShim',
                 wwd.addLayer(wmsLayer);
                 layerManager.synchronizeLayerList();
                 wmsLayer.enabled = false;
-                console.log("charlie");
             };
 
             // Called if an error occurs during WMS Capabilities document retrieval
@@ -564,9 +555,6 @@ requirejs(['./WorldWindShim',
         //                    //
         //                    //
         ////////////////////////
-
-
-
 
         // Create the custom image for the placemark with a 2D canvas.
         var canvas = document.createElement("canvas"),
@@ -652,6 +640,4 @@ requirejs(['./WorldWindShim',
 //                    //
 //                    //
 ////////////////////////
-
-
 // console.log("");
