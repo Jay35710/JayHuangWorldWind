@@ -78,8 +78,8 @@ input:checked + .slider:before {
 }
 #charFatPop{
     position: absolute;
+    top: 55%;
     left: 55%;
-    top:55%;
     color: black;
     z-index: auto;
 }

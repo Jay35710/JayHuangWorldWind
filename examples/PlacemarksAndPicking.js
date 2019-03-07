@@ -198,22 +198,6 @@ requirejs(['./WorldWindShim',
         //Create a layer manager for controlling layer visibility.
         //var layerManager = new LayerManager(wwd);
 
-
-////////////////////////
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-////////////////////////
-
 ////////////////////////
 //                    //
 //                    //
@@ -324,8 +308,6 @@ requirejs(['./WorldWindShim',
 
             var pickListCF = wwd.pick(wwd.canvasCoordinates(x, y));
 
-
-
             highlightedItems = [];
 
             if (pickListCF.objects.length > 0) {
@@ -351,13 +333,8 @@ requirejs(['./WorldWindShim',
                         //placemarkC2Layer.enabled =false;
 
                     }
-
-
                 }
             }
-
-
-
         };
 
 
@@ -425,34 +402,11 @@ requirejs(['./WorldWindShim',
 
         //<a href="#" title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">Hover over me</a>
         var charFatPop = document.createElement("div");
-        charFatPop.innerHTML ='<a id ="charFatPopPop" href="https://www.cdc.gov/healthyschools/obesity/index.htm" title="CharFatFat" data-content="charJustFat" data-toggle="popover" data-trigger="hover" ></a>';
+        charFatPop.innerHTML ='<a id ="charFatPop" href="https://www.cdc.gov/healthyschools/obesity/index.htm" title="CharFatFat" data-content="charJustFat" data-toggle="popover" data-trigger="hover" ></a>';
         console.log(charFatPop);
         //var charFatPopPop = document.querySelector("#charFatPopPop");
         document.body.appendChild(charFatPop);
-        charFatPop.id = "charFatPop";
-        charFatPop.style.position = "absolute";
-        charFatPop.style.left = "55%";
-        charFatPop.style.top = "55%";
-        charFatPop.style.color = "black";
-        charFatPop.style.zIndex = "100";
 
-
-
-        //get close button by id
-////////////////////////
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-////////////////////////
 
 
         var popOverNew = function(o) {
@@ -463,10 +417,6 @@ requirejs(['./WorldWindShim',
                 highlightedItems[h].highlighted = false;
 
                 var pickListCF = wwd.pick(wwd.canvasCoordinates(x, y));
-
-
-
-
 
                 highlightedItems = [];
 
@@ -488,14 +438,7 @@ requirejs(['./WorldWindShim',
             }
         };
 
-
-
         wwd.addEventListener("mousemove", popOverNew);
-        // [data-toggle="popover"]
-
-
-
-
 
 ////////////////////////
 //                    //challenge 4
@@ -570,7 +513,7 @@ requirejs(['./WorldWindShim',
         //                    //
         //                    //
         ////////////////////////
-            //  http://geoserver.org
+            //  http://cs.aworldbridgelabs.com:8080/geoserver/web/
             //  http://aworldbridgelabs.com:8080/geoserver/FatWMS/wms?service=WMS&version=1.1.0&request=GetMap&layers=FatWMS:pointlands&styles=&bbox=-105.370531,39.914352,-105.065309,40.217396&width=768&height=762&srs=EPSG:4269&format=application/openlayers
 
             // Web Map Service information from NASA's Near Earth Observations WMS
@@ -587,13 +530,14 @@ requirejs(['./WorldWindShim',
                 // Form a configuration object from the WmsLayerCapability object
                 var wmsConfig = WorldWind.WmsLayer.formLayerConfiguration(wmsLayerCapabilities);
                 // Modify the configuration objects title property to a more user friendly title
-                wmsConfig.title = "Average Surface Temp";
+                wmsConfig.title = "Fat";
                 // Create the WMS Layer from the configuration object
                 var wmsLayer = new WorldWind.WmsLayer(wmsConfig);
 
                 // Add the layers to WorldWind and update the layer manager
                 wwd.addLayer(wmsLayer);
                 layerManager.synchronizeLayerList();
+                wmsLayer.enabled = false;
             };
 
             // Called if an error occurs during WMS Capabilities document retrieval
@@ -601,7 +545,9 @@ requirejs(['./WorldWindShim',
                 console.log("There was a failure retrieving the capabilities document: " + text + " exception: " + exception);
             };
 
+
             $.get(serviceAddress).done(createLayer).fail(logError);
+
         ////////////////////////
         //                    //
         //Create              //
@@ -690,61 +636,6 @@ requirejs(['./WorldWindShim',
         // Create a layer manager for controlling layer visibility.
         var layerManager = new LayerManager(wwd);
     });
-////////////////////////
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-////////////////////////
-////////////////////////
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-////////////////////////
-////////////////////////
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-////////////////////////
-////////////////////////
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
-//                    //
 ////////////////////////
 //                    //
 //                    //
