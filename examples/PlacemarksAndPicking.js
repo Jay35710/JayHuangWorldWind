@@ -88,7 +88,7 @@ requirejs(['./WorldWindShim',
         placemarkAttributes.imageOffset = new WorldWind.Offset(
             WorldWind.OFFSET_FRACTION, 0.3,
             WorldWind.OFFSET_FRACTION, 0.0);
-        placemarkAttributes.imageColor = WorldWind.Color.GREEN//WHITE;
+        placemarkAttributes.imageColor = WorldWind.Color.GREEN;//WHITE;
         placemarkAttributes.labelAttributes.offset = new WorldWind.Offset(
             WorldWind.OFFSET_FRACTION, 0.5,
             WorldWind.OFFSET_FRACTION, 1.0);
@@ -221,7 +221,7 @@ requirejs(['./WorldWindShim',
         placemarkCAttributes.imageOffset = new WorldWind.Offset(
             WorldWind.OFFSET_FRACTION, 0.0,
             WorldWind.OFFSET_FRACTION, 0.0);
-        placemarkCAttributes.imageColor = WorldWind.Color.WHITE//BLUE;
+        placemarkCAttributes.imageColor = WorldWind.Color.WHITE;//BLUE;
         placemarkCAttributes.labelAttributes.color = WorldWind.Color.WHITE;
         placemarkCAttributes.labelAttributes.offset = new WorldWind.Offset(
             WorldWind.OFFSET_FRACTION, 0.5,
@@ -517,7 +517,8 @@ requirejs(['./WorldWindShim',
             //  http://aworldbridgelabs.com:8080/geoserver/FatWMS/wms?service=WMS&version=1.1.0&request=GetMap&layers=FatWMS:pointlands&styles=&bbox=-105.370531,39.914352,-105.065309,40.217396&width=768&height=762&srs=EPSG:4269&format=application/openlayers
 
             // Web Map Service information from NASA's Near Earth Observations WMS
-            var serviceAddress = "https://neo.sci.gsfc.nasa.gov/wms/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0";
+        var serviceAddress = "./data/FatWMS.js";
+        // var serviceAddress = "https://neo.sci.gsfc.nasa.gov/wms/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0";
             // Named layer displaying Average Temperature data
             var layerName = "MOD_LSTD_CLIM_M";
 
@@ -538,6 +539,7 @@ requirejs(['./WorldWindShim',
                 wwd.addLayer(wmsLayer);
                 layerManager.synchronizeLayerList();
                 wmsLayer.enabled = false;
+                console.log("charlie");
             };
 
             // Called if an error occurs during WMS Capabilities document retrieval
