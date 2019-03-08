@@ -507,30 +507,66 @@ requirejs(['./WorldWindShim',
         //                    //
         //                    //
         ////////////////////////
+
             //  http://cs.aworldbridgelabs.com:8080/geoserver/web/
             //  http://aworldbridgelabs.com:8080/geoserver/FatWMS/wms?service=WMS&version=1.1.0&request=GetMap&layers=FatWMS:pointlands&styles=&bbox=-105.370531,39.914352,-105.065309,40.217396&width=768&height=762&srs=EPSG:4269&format=application/openlayers
             // Web Map Service information from NASA's Near Earth Observations WMS
         //var serviceAddress = "./data/FatWMS.js";
-        var serviceAddress = "https://neo.sci.gsfc.nasa.gov/wms/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0";
+        // var serviceAddress = "https://neo.sci.gsfc.nasa.gov/wms/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0";
+        var serviceAddress = "http://cs.aworldbridgelabs.com:8080/geoserver/ows?service=wms&version=1.3.0&request=GetCapabilities";
             // Named layer displaying Average Temperature data
-            var layerName = "MOD_LSTD_CLIM_M";
+        var layerName = "FatWMS:pointlands";
             // Called asynchronously to parse and create the WMS layer
             var createLayer = function (xmlDom) {
                 // Create a WmsCapabilities object from the XML DOM
                 var wms = new WorldWind.WmsCapabilities(xmlDom);
+                console.log(wms);
                 // Retrieve a WmsLayerCapabilities object by the desired layer name
                 var wmsLayerCapabilities = wms.getNamedLayer(layerName);
+                console.log(wmsLayerCapabilities);
                 // Form a configuration object from the WmsLayerCapability object
                 var wmsConfig = WorldWind.WmsLayer.formLayerConfiguration(wmsLayerCapabilities);
                 // Modify the configuration objects title property to a more user friendly title
-                wmsConfig.title = "Fat";
+                wmsConfig.title = "øøøøøøøøø";
                 // Create the WMS Layer from the configuration object
                 var wmsLayer = new WorldWind.WmsLayer(wmsConfig);
 
                 // Add the layers to WorldWind and update the layer manager
                 wwd.addLayer(wmsLayer);
                 layerManager.synchronizeLayerList();
-                wmsLayer.enabled = false;
+                wmsLayer.enabled = true;
+                console.log("char");
+                var slider3 = document.getElementById("slider3");
+                var LayerToggle3 = function () {
+                    if (wmsLayer.enabled === true) {
+                        slider3.onclick = function () {
+                            wmsLayer.enabled = false
+
+                        }
+                    }
+                    if (wmsLayer.enabled === false) {
+                        slider3.onclick = function () {
+                            wmsLayer.enabled = true
+                        }
+                    }
+                };
+                addEventListener("click", LayerToggle3);
+
+                var slider4 = document.getElementById("slider4");
+                var LayerToggle4 = function () {
+                    if (wmsLayer.enabled === true) {
+                        slider4.onclick = function () {
+                            wmsLayer.enabled = false
+
+                        }
+                    }
+                    if (wmsLayer.enabled === false) {
+                        slider4.onclick = function () {
+                            wmsLayer.enabled = true
+                        }
+                    }
+                };
+                addEventListener("click", LayerToggle4);
             };
 
             // Called if an error occurs during WMS Capabilities document retrieval
@@ -540,6 +576,10 @@ requirejs(['./WorldWindShim',
 
 
             $.get(serviceAddress).done(createLayer).fail(logError);
+
+
+        //toggle the layer
+
 
         ////////////////////////
         //                    //
