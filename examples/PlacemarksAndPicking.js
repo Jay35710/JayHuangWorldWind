@@ -32,6 +32,7 @@ requirejs(['./WorldWindShim',
         var layers = [
             // Imagery layers.
             {layer: new WorldWind.BMNGLayer(), enabled: true},
+            {layer: new WorldWind.BingAerialLayer(), enabled: true},
             {layer: new WorldWind.BMNGLandsatLayer(), enabled: false},
             {layer: new WorldWind.BingAerialWithLabelsLayer(null), enabled: false},
             // Add atmosphere layer on top of all base layers.
@@ -40,6 +41,7 @@ requirejs(['./WorldWindShim',
             {layer: new WorldWind.CompassLayer(), enabled: false},
             {layer: new WorldWind.CoordinatesDisplayLayer(wwd), enabled: false},
             {layer: new WorldWind.ViewControlsLayer(wwd), enabled: false},
+
 
         ];
         console.log(new WorldWind.ViewControlsLayer(wwd));
