@@ -214,6 +214,7 @@ requirejs(['./WorldWindShim',
 //                    //
 //                    //
 ////////////////////////
+        //https://worldwind.arc.nasa.gov/web/get-started/#anchor
         //create layer
         var placemarkCLayer = new WorldWind.RenderableLayer("∞∞∞∞∞∞∞∞∞∞∞");
 
