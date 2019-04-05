@@ -516,9 +516,9 @@ requirejs(['./WorldWindShim',
             // Web Map Service information from NASA's Near Earth Observations WMS
         //var serviceAddress = "./data/FatWMS.js";
         // var serviceAddress = "https://neo.sci.gsfc.nasa.gov/wms/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0";
-        var serviceAddress = "http://cs.aworldbridgelabs.com:8080/geoserver/ows?service=wms&version=1.3.0&request=GetCapabilities";
+        var serviceAddress = "http://10.11.90.16:8080/geoserver/ows?service=wms&version=1.3.0&request=GetCapabilities";
             // Named layer displaying Average Temperature data
-        var layerName = "FatWMS:pointlands";
+        var layerName = "FatWMS:giant_polygon";
             // Called asynchronously to parse and create the WMS layer
             var createLayer = function (xmlDom) {
                 // Create a WmsCapabilities object from the XML DOM
@@ -533,6 +533,7 @@ requirejs(['./WorldWindShim',
                 wmsConfig.title = "øøøøøøøøø";
                 // Create the WMS Layer from the configuration object
                 var wmsLayer = new WorldWind.WmsLayer(wmsConfig);
+
 
                 // Add the layers to WorldWind and update the layer manager
                 wwd.addLayer(wmsLayer);
@@ -574,11 +575,16 @@ requirejs(['./WorldWindShim',
 
             // Called if an error occurs during WMS Capabilities document retrieval
             var logError = function (jqXhr, text, exception) {
-                console.log("There was a failure retrieving the capabilities document: " + text + " exception: " + exception);
+                console.error("There was a failure retrieving the capabilities document: " + text + " exception: " + exception);
             };
 
 
-            $.get(serviceAddress).done(createLayer).fail(logError);
+        $.ajax({
+            type: "GET",
+            crossOrigin: true,
+            // headers: {"Access-Control-Allow-Origin":"*"},
+            url: "http://10.11.90.16:8080/geoserver/ows?service=wms&version=1.3.0&request=GetCapabilities"
+        }).done(createLayer).fail(logError);
 
 
         //toggle the layer
